@@ -18,9 +18,14 @@ const isFavorite = (pokemonId: number): boolean => {
     return favorites.includes(pokemonId);
 };
 
+const getFavorites = (): number[] => {
+    return JSON.parse(localStorage.getItem('favorites') || '[]');
+};
+
 const exportedObj = {
     toggleFavorite,
     isFavorite,
+    getFavorites,
 };
 
 export default exportedObj;

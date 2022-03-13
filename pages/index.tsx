@@ -24,7 +24,7 @@ const HomePage: NextPage<HomePageProps> = ({ pokemons }) => {
 
 // Se ejecuta del lado del servidor en tiempo de construcción
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=10');
+    const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151');
 
     const pokemons: SmallPokemon[] = data.results.map((pokemon, ix) => ({
         ...pokemon,
