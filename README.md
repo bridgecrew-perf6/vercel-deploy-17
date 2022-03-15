@@ -29,4 +29,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-Para desplegar el proyecto, se utiliza el repositorio genérico `jcpalma/vercel-deploy` en la rama 'pokemon-static-nextjs'.
+Para desplegar el proyecto, se utiliza el repositorio genérico `jcpalma/vercel-deploy` en la rama `pokemon-static-nextjs`.
