@@ -8,7 +8,7 @@ import { Layout } from '../../components/layouts';
 import { Pokemon } from '../../interfaces';
 import { pokeApi } from '../../api';
 import { PokemonListResponse } from '../../interfaces/pokemon-list';
-import { getPokemonInfo, localFavorites } from '../../utils';
+import { capitalize, getPokemonInfo, localFavorites } from '../../utils';
 
 interface Props {
     pokemon: Pokemon;
@@ -34,7 +34,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
     };
 
     return (
-        <Layout>
+        <Layout title={capitalize(name)}>
             <Grid.Container css={{ marginTop: '5px' }} gap={2}>
                 <Grid xs={12} sm={4}>
                     <Card hoverable css={{ padding: '30px' }}>

@@ -6,7 +6,7 @@ import confetti from 'canvas-confetti';
 
 import { Layout } from '../../components/layouts';
 import { Pokemon } from '../../interfaces';
-import { getPokemonInfo, localFavorites } from '../../utils';
+import { capitalize, getPokemonInfo, localFavorites } from '../../utils';
 
 interface PokemonPageProps {
     pokemon: Pokemon;
@@ -32,7 +32,7 @@ const PokemonPage: NextPage<PokemonPageProps> = ({ pokemon }) => {
     };
 
     return (
-        <Layout title={`Pokemon App | ${name}`}>
+        <Layout title={capitalize(name)}>
             <Grid.Container css={{ marginTop: '5px' }} gap={2}>
                 <Grid xs={12} sm={4}>
                     <Card hoverable css={{ padding: '30px' }}>
