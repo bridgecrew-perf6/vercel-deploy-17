@@ -102,16 +102,29 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
     return {
         paths,
-        fallback: false,
+        fallback: 'blocking',
     };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { id } = params as { id: string };
 
+    const pokemon = await getPokemonInfo(id);
+
+    // En caso de error (pokemon sea null) lo redirigimos a la página de inicio.
+    // permanet: false -> Es por si en algún momento el id si existe.
+    if (!pokemon) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        };
+    }
+
     return {
         props: {
-            pokemon: await getPokemonInfo(id),
+            pokemon,
         },
         revalidate: 86400, // Se revalidará (regenerará) cada día (I.S.R.)
     };
